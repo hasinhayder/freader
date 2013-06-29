@@ -11,26 +11,34 @@ function scripts_and_styles(){
 	wp_enqueue_script( "app-js" );
 
 	wp_enqueue_style( "app-style", get_template_directory_uri()."/css/app.css" );
-  	wp_enqueue_style( "lato", '//fonts.googleapis.com/css?family=Lato:400', false, null);
+	wp_enqueue_style( "lato", '//fonts.googleapis.com/css?family=Lato:400', false, null);
 
 
 }
 
 show_admin_bar( false );
 
+function subscribe_feed(){
+	$username = ''; // your superfeedr username
+	$password = ''; // your superfeedr password
+	$callback = get_site_url(); // your callback URL
+	$feed =  $_REQUEST['feed']; //'http://hasin.me/feed';
 
-/*$username = ''; // your superfeedr username
-$password = ''; // your superfeedr password
-$callback = ''; // your callback URL
-$feed = 'http://hasin.me/feed';
-
-$superfeedr = new Superfeedr($username, $password, $callback);
-try{
-if ($superfeedr->subscribe($feed)) {
-    echo 'Subscribed' . "\n";
-    die();
+	$superfeedr = new Superfeedr($username, $password, $callback);
+	try{
+		if ($superfeedr->subscribe($feed)) {
+			die(1);
+		}
+	}catch(Exception $e){}
 }
-}catch(Exception $e){
-	print_r($e);
-}*/
+
+function feed_subscription_callback(){
+	die($_REQUEST['hub_challenge']);
+}
+
+add_action("wp_ajax_subscribe_feed", "subscribe_feed");
+add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
+
+
+
 ?>
