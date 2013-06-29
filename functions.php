@@ -1,4 +1,5 @@
 <?php
+include_once("lib/superfeedr/superfeedr.php");
 add_filter("wp_enqueue_scripts","scripts_and_styles");
 function scripts_and_styles(){
 	
@@ -16,4 +17,20 @@ function scripts_and_styles(){
 }
 
 show_admin_bar( false );
+
+
+/*$username = ''; // your superfeedr username
+$password = ''; // your superfeedr password
+$callback = ''; // your callback URL
+$feed = 'http://hasin.me/feed';
+
+$superfeedr = new Superfeedr($username, $password, $callback);
+try{
+if ($superfeedr->subscribe($feed)) {
+    echo 'Subscribed' . "\n";
+    die();
+}
+}catch(Exception $e){
+	print_r($e);
+}*/
 ?>

@@ -54,7 +54,7 @@ h1, h2, h3, h4{
 	font-size: 13px;
 	text-transform: uppercase;
 	cursor: pointer;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	margin-right: 10px;
 }
 

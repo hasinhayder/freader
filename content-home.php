@@ -1,4 +1,4 @@
-<div class="feeds">
+<div class="feeds" id="feedscanvas">
 	<?php
 	while(have_posts()){ the_post(); ?>
 	<div class="feed">
