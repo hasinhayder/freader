@@ -5,6 +5,7 @@ body{
 	font-size: 14px;
 	background-color: #fff;
 	color: #333;
+	overflow: hidden;
 }
 .span12{
 	width:100%;
@@ -70,7 +71,6 @@ header.main{
 	height:90px;
 	padding:30px 20px 10px 20px;
 	background-color: #eee;
-
 }
 
 header.main h1{
@@ -87,6 +87,10 @@ header.main h2{
 /*--------------------------------------------------------*
  * Feed Section 
  *--------------------------------------------------------*/
+.feeds{
+	overflow-y: auto;
+}
+
 .feed{
 	border-bottom:1px solid #ccc;
 	width: 600px;
