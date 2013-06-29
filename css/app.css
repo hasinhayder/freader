@@ -1,0 +1,153 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Helvetica Neue";
+	font-size: 14px;
+	background-color: #fff;
+	color: #333;
+}
+.span12{
+	width:100%;
+	/*height:120px;*/
+	/*background-color: #333;*/
+}
+.span4{
+	float:left;
+	/*background-color: #222;*/
+	height: 800px;
+}
+.span8{
+	/*width:100%;*/
+	float: left;
+	background-color: #fff;
+	/*height: 200px;*/
+}
+
+h1, h2, h3, h4{
+	margin: 0px;
+	padding: 0px;
+}
+
+.clear{
+	clear: both;
+}
+
+/*--------------------------------------------------------*
+ * Header Section 
+ *--------------------------------------------------------*/
+header.main{
+	height:90px;
+	padding:30px 20px 10px 20px;
+	background-color: #eee;
+
+}
+
+header.main h1{
+	color: #d84a38;
+	font-size: 28px;
+	font-weight: normal;
+}
+header.main h2{
+	font-size: 18px;
+	margin-top: 5px;
+	font-weight: normal;
+}
+
+/*--------------------------------------------------------*
+ * Feed Section 
+ *--------------------------------------------------------*/
+.feed{
+	border-bottom:1px solid #ccc;
+	width: 600px;
+	cursor: pointer;
+	color:#333;
+}
+
+.feed:hover{
+	background-color: #fcfceb;
+}
+
+.feed .icon{
+	width:20px;
+	float: left;
+	padding:10px 10px;
+}
+
+.feed .info{
+	padding:10px 10px;
+	width: 160px;
+	float: left;
+	overflow: hidden;
+}
+
+.feed .content{
+	padding:10px 10px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+/*--------------------------------------------------------*
+ * Sidebar Section 
+ *--------------------------------------------------------*/
+.sidebar{
+	/*border-right:1px solid #ccc;*/
+	margin: 0px;
+	/*background-color: #ded7be;*/
+	height: 800px;
+	width:280px;
+
+}
+
+.subscribe{
+	height: 35px;
+	width: 150px;
+	background-color: #e74c3c;
+	border-radius: 3px;
+	border: none;
+	color: #efefef;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-top: 20px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.subscribe:hover{
+	color:#fff;
+	box-shadow: 1px 1px 2px #ccc;
+}
+
+ul.sidebar-items{
+	margin: 0px;
+	padding: 20px 20px;
+	list-style-type: none;
+}
+
+ul.sidebar-items li.parent{
+	font-weight: bold;
+	margin-top: 15px;
+	cursor: pointer ;
+	padding-top:5px;
+
+}
+
+ul.sidebar-items li.child:nth-child(1){
+	margin-top: 10px;
+}
+
+ul.sidebar-items li.child{
+	font-weight: normal;
+	padding: 5px 5px;
+	cursor: pointer ;
+	font-size: 13px;
+}
+
+ul.sidebar-items li.child:hover{
+	background-color: #eee;
+}
+
+ul.sidebar-items li ul{
+	margin: 0px;
+	padding: 0px 20px;
+	list-style-type: none;
+}

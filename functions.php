@@ -10,6 +10,8 @@ function scripts_and_styles(){
 	wp_enqueue_script( "app-js" );
 
 	wp_enqueue_style( "app-style", get_template_directory_uri()."/css/app.css" );
+  	wp_enqueue_style('lato', '//fonts.googleapis.com/css?family=Lato:400', false, null);
+
 
 }
 
