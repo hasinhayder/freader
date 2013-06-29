@@ -101,26 +101,26 @@ header.main h2{
 .feed .icon{
 	width:20px;
 	float: left;
-	padding:10px 10px 8px 10px;
+	padding:10px 10px 6px 10px;
 	color:#ccc;
 }
 
 .feed .info{
-	padding:10px 10px 8px 10px;
+	padding:10px 10px 6px 10px;
 	width: 160px;
 	float: left;
 	overflow: hidden;
 }
 
 .feed .content{
-	padding:10px 10px 8px 10px;
+	padding:10px 10px 6px 10px;
 	font-weight: bold;
 	font-size: 13px;
 	float:left;
 }
 
 .feed .meta{
-	padding:10px 10px 8px 10px;
+	padding:10px 10px 6px 10px;
 	font-size: 13px;
 }
 
