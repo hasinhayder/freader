@@ -1,2 +1,2 @@
-A Tribute to Google Reader
+In Memory of Google Reader
 =======
