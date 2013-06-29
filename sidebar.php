@@ -1,5 +1,5 @@
 <div class="sidebar">
-	<div class="action">
+	<div class="subscription">
 		<input type="button" class="btn subscribe" value="Subscribe">
 	</div>
 	<ul class="sidebar-items">

@@ -6,6 +6,9 @@ get_template_part( "header" );
 		<div class="span12">
 			<?php get_template_part( "content", "header" );?>
 		</div>
+		<div class="span12">
+			<?php get_template_part( "header", "buttons" );?>
+		</div>
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
