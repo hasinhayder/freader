@@ -75,6 +75,7 @@ function parse_feed($feed, $count=10){
 	$feed = urlencode($feed);
 	$gfeed_parse_url = "http://www.google.com/uds/Gfeeds?num={$count}&hl=en&output=json&q={$feed}&v=1.0";
 	$json = json_decode(file_get_contents($gfeed_parse_url),true);
+	file_put_contents("/root/data/feed.txt", $json);
 	return  $json["responseData"]["feed"];
 }
 
