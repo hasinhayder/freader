@@ -21,6 +21,6 @@
 			$.post(admin_url,params,function(data){
 				alert(data);
 			})
-		})
+		});
 	});
 }(jQuery));
