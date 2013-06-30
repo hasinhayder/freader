@@ -29,7 +29,7 @@ show_admin_bar( false );
 function subscribe_feed(){
 	$username = ''; // your superfeedr username
 	$password = ''; // your superfeedr password
-	$callback = get_site_url(); // your callback URL
+	$callback = admin_url("admin-ajax.php")."?action=subscribe_feed"; // your callback URL
 	$feed =  $_REQUEST['feed']; //'http://hasin.me/feed';
 
 	$superfeedr = new Superfeedr($username, $password, $callback);
@@ -47,8 +47,25 @@ function feed_subscription_callback(){
 	die($_REQUEST['hub_challenge']);
 }
 
+/**
+ * Superfeedr new feed callback
+ */
+function incoming_feed(){
+	$username = ''; // your superfeedr username
+	$password = ''; // your superfeedr password
+	$callback = admin_url("admin-ajax.php")."?action=incoming_feed"; // your callback URL
+
+	$superfeedr = new Superfeedr($username, $password, $callback);
+
+	if (!$res = $superfeedr->verify()) {
+	    $json = $superfeedr->callback();
+	    //now process this json
+	}
+}
+
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
+add_action("wp_ajax_nopriv_incoming_feed", "incoming_feed");
 
 
 /**
