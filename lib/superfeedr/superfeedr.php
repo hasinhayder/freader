@@ -151,7 +151,7 @@ class Superfeedr {
     public function subscribe($url, $hubSecret = null)
     {
         $res = $this->call('subscribe', $url, $hubSecret);
-        print_r($res);
+        //print_r($res);
         die();
         if (!empty($res['info']['http_code']) &&
             $res['info']['http_code'] == 204) {
