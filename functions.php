@@ -60,22 +60,10 @@ function feed_subscription_callback(){
 	die();
 }
 
-/**
- * Superfeedr new feed callback
- */
-function incoming_feed(){
-	$username = ''; // your superfeedr username
-	$password = ''; // your superfeedr password
-	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; // your callback URL
-
-	
-}
 
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
-//add_action("wp_ajax_nopriv_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
 add_action("wp_ajax_feed_subscription_callback", "feed_subscription_callback");
-// add_action("wp_ajax_nopriv_incoming_feed", "incoming_feed");
 
 
 /**
