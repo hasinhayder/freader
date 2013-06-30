@@ -27,9 +27,10 @@ show_admin_bar( false );
  * Superfeedr feed subscription Ajax Callback for admin
  */
 function subscribe_feed(){
-	$username = ''; // your superfeedr username
-	$password = ''; // your superfeedr password
+	$username = 'ironhide'; // your superfeedr username
+	$password = 'c0mm0n123'; // your superfeedr password
 	$callback = admin_url("admin-ajax.php")."?action=subscribe_feed"; // your callback URL
+	$callback = "http://poetry.themio.net/wp-admin/admin-ajax.php?action=subscribe_feed"; // your callback URL
 	$feed =  $_REQUEST['feed']; //'http://hasin.me/feed';
 
 	$superfeedr = new Superfeedr($username, $password, $callback);
@@ -64,7 +65,9 @@ function incoming_feed(){
 }
 
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
+add_action("wp_ajax_nopriv_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
+add_action("wp_ajax_feed_subscription_callback", "feed_subscription_callback");
 add_action("wp_ajax_nopriv_incoming_feed", "incoming_feed");
 
 

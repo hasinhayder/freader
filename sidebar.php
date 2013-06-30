@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<div class="subscription">
-		<input type="button" class="btn subscribe" value="Subscribe">
+		<input type="button" class="btn subscribe" id="subscribe" value="Subscribe">
 	</div>
 	<ul class="sidebar-items">
 		<li class="parent">Starred Items</li>
