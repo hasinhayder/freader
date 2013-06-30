@@ -30,7 +30,7 @@ function subscribe_feed(){
 	$username = 'ironhide'; // your superfeedr username
 	$password = 'c0mm0n123'; // your superfeedr password
 	$callback = admin_url("admin-ajax.php")."?action=subscribe_feed"; // your callback URL
-	$callback = "http://poetry.themio.net/wp-admin/admin-ajax.php?action=subscribe_feed"; // your callback URL
+	$callback = "http://reader.themio.net/wp-admin/admin-ajax.php?action=subscribe_feed"; // your callback URL
 	$feed =  $_REQUEST['feed']; //'http://hasin.me/feed';
 
 	$superfeedr = new Superfeedr($username, $password, $callback);
