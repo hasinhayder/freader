@@ -29,8 +29,8 @@ show_admin_bar( false );
 function subscribe_feed(){
 	$username = 'ironhide'; // your superfeedr username
 	$password = 'c0mm0n123'; // your superfeedr password
-	$callback = admin_url("admin-ajax.php")."?action=subscribe_feed"; // your callback URL
-	$callback = "http://reader.themio.net/wp-admin/admin-ajax.php?action=feed_subscription_callback"; // your callback URL
+	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; // your callback URL
+	//$callback = "http://reader.themio.net/wp-admin/admin-ajax.php?action=feed_subscription_callback"; // your callback URL
 	$feed =  $_REQUEST['feed']; //'http://hasin.me/feed';
 
 	$superfeedr = new Superfeedr($username, $password, $callback);
@@ -39,13 +39,19 @@ function subscribe_feed(){
 			die(1);
 		}
 	}catch(Exception $e){}
+	die();
 }
 
 /**
  * Superfeedr subscription callback for echoing hub challenge to complete the subscription process
  */
 function feed_subscription_callback(){
-	die($_REQUEST['hub_challenge']);
+	$username = 'ironhide'; // your superfeedr username
+	$password = 'c0mm0n123'; // your superfeedr password
+	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; 
+	$superfeedr = new Superfeedr($username, $password, $callback);
+	$superfeedr->verify()
+	die();
 }
 
 /**
@@ -54,13 +60,14 @@ function feed_subscription_callback(){
 function incoming_feed(){
 	$username = ''; // your superfeedr username
 	$password = ''; // your superfeedr password
-	$callback = admin_url("admin-ajax.php")."?action=incoming_feed"; // your callback URL
+	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; // your callback URL
 
 	$superfeedr = new Superfeedr($username, $password, $callback);
 
 	if (!$res = $superfeedr->verify()) {
 		$json = $superfeedr->callback();
 	    //now process this json
+	    file_put_contents("/root/data/feed.txt", $json);
 	}
 }
 
