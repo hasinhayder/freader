@@ -39,6 +39,11 @@ function feed_subscription_callback(){
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
 
-
+function parse_feed($feed, $count=10){
+	$feed = urlencode($feed);
+	$gfeed_parse_url = "http://www.google.com/uds/Gfeeds?num={$count}&hl=en&output=json&q={$feed}&v=1.0";
+	$json = json_decode(file_get_contents($gfeed_parse_url),true);
+	return  $json["responseData"]["feed"];
+}
 
 ?>
