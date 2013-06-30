@@ -13,10 +13,10 @@
 
 
 		$("#subscribe").bind("click",function(){
-			alert("2");
+			//alert("2");
 			var params = {
 				action:"subscribe_feed",
-				"feed":"http://rss1.smashingmagazine.com/feed/"
+				"feed":"http://feeds2.feedburner.com/webresourcesdepot"
 			}
 			$.post(admin_url,params,function(data){
 				alert(data);

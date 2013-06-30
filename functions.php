@@ -36,10 +36,9 @@ function subscribe_feed(){
 	$superfeedr = new Superfeedr($username, $password, $callback);
 	try{
 		if ($superfeedr->subscribe($feed)) {
-			die(1);
+			die("Successfully Subscribed");
 		}
 	}catch(Exception $e){}
-	die();
 }
 
 /**
