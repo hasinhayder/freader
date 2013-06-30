@@ -49,7 +49,14 @@ function feed_subscription_callback(){
 	$password = 'c0mm0n123'; // your superfeedr password
 	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; 
 	$superfeedr = new Superfeedr($username, $password, $callback);
-	$superfeedr->verify();
+	$superfeedr = new Superfeedr($username, $password, $callback);
+
+	if (!$res = $superfeedr->verify()) {
+		//new content
+		$json = $superfeedr->callback();
+	    //now process this json
+	    file_put_contents("/root/data/feed.txt", $json);
+	}
 	die();
 }
 
@@ -61,20 +68,14 @@ function incoming_feed(){
 	$password = ''; // your superfeedr password
 	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; // your callback URL
 
-	$superfeedr = new Superfeedr($username, $password, $callback);
-
-	if (!$res = $superfeedr->verify()) {
-		$json = $superfeedr->callback();
-	    //now process this json
-	    file_put_contents("/root/data/feed.txt", $json);
-	}
+	
 }
 
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
-add_action("wp_ajax_nopriv_subscribe_feed", "subscribe_feed");
+//add_action("wp_ajax_nopriv_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
 add_action("wp_ajax_feed_subscription_callback", "feed_subscription_callback");
-add_action("wp_ajax_nopriv_incoming_feed", "incoming_feed");
+// add_action("wp_ajax_nopriv_incoming_feed", "incoming_feed");
 
 
 /**
