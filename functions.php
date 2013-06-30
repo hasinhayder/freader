@@ -1,5 +1,8 @@
 <?php
 include_once("lib/superfeedr/superfeedr.php");
+/**
+ * Scripts And Stylesheets
+ */
 add_filter("wp_enqueue_scripts","scripts_and_styles");
 function scripts_and_styles(){
 	
@@ -16,8 +19,13 @@ function scripts_and_styles(){
 
 }
 
+/* Hide admin bar during development */
 show_admin_bar( false );
 
+
+/**
+ * Superfeedr feed subscription Ajax Callback for admin
+ */
 function subscribe_feed(){
 	$username = ''; // your superfeedr username
 	$password = ''; // your superfeedr password
@@ -32,6 +40,9 @@ function subscribe_feed(){
 	}catch(Exception $e){}
 }
 
+/**
+ * Superfeedr subscription callback for echoing hub challenge to complete the subscription process
+ */
 function feed_subscription_callback(){
 	die($_REQUEST['hub_challenge']);
 }
@@ -39,6 +50,10 @@ function feed_subscription_callback(){
 add_action("wp_ajax_subscribe_feed", "subscribe_feed");
 add_action("wp_ajax_nopriv_feed_subscription_callback", "feed_subscription_callback");
 
+
+/**
+ * Feed parser routine with the help of google feed parser API
+ */
 function parse_feed($feed, $count=10){
 	$feed = urlencode($feed);
 	$gfeed_parse_url = "http://www.google.com/uds/Gfeeds?num={$count}&hl=en&output=json&q={$feed}&v=1.0";
