@@ -50,7 +50,7 @@ function feed_subscription_callback(){
 	$password = 'c0mm0n123'; // your superfeedr password
 	$callback = admin_url("admin-ajax.php")."?action=feed_subscription_callback"; 
 	$superfeedr = new Superfeedr($username, $password, $callback);
-	$superfeedr->verify()
+	$superfeedr->verify();
 	die();
 }
 
