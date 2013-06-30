@@ -16,7 +16,7 @@
 			alert("2");
 			var params = {
 				action:"subscribe_feed",
-				"feed":"http://hasin.me/feed"
+				"feed":"http://rss1.smashingmagazine.com/feed/"
 			}
 			$.post(admin_url,params,function(data){
 				alert(data);
