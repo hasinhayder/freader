@@ -58,7 +58,7 @@ function incoming_feed(){
 	$superfeedr = new Superfeedr($username, $password, $callback);
 
 	if (!$res = $superfeedr->verify()) {
-	    $json = $superfeedr->callback();
+		$json = $superfeedr->callback();
 	    //now process this json
 	}
 }
@@ -77,5 +77,29 @@ function parse_feed($feed, $count=10){
 	$json = json_decode(file_get_contents($gfeed_parse_url),true);
 	return  $json["responseData"]["feed"];
 }
+
+/**
+ * Theme activation hook. Create necessary DB Tables
+ */
+function theme_activated($oldname,$oldtheme){
+	global $wpdb;
+	$sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}freader_summary (
+		`id` int(11) NOT NULL AUTO_INCREMENT,
+		`tag_id` int(11) DEFAULT NULL,
+		`tag_name` varchar(250) DEFAULT NULL,
+		`tag_url` varchar(250) DEFAULT NULL,
+		`modified` int(11) DEFAULT NULL,
+		`unread` int(11) DEFAULT NULL,
+		`total` int(11) DEFAULT NULL,
+		`created` int(11) DEFAULT NULL,
+		PRIMARY KEY (`id`),
+		KEY `tag_id` (`tag_id`),
+		KEY `tag_name` (`tag_name`),
+		KEY `modified` (`modified`)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8";
+	$wpdb->query($sql);
+}
+
+add_action("after_switch_theme", "theme_activated", 10 ,  2);
 
 ?>
